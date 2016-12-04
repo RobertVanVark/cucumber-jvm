@@ -4,12 +4,16 @@ node {
       mvnHome = tool 'mvn3'
    }
    stage('Pre-Build') {
-      node {
-         checkout scm
-         echo "Pre-Build stage - $env.PATH"
-      }
-      node {
-         echo "Pre-Build stage - $env.OSTYPE"
+      parallel 'path': {
+         node {
+            checkout scm
+            echo "Pre-Build stage - $env.PATH"
+         }
+      },
+      'ostype': {   
+         node {
+            echo "Pre-Build stage - $env.OSTYPE"
+         }
       }
    }
    stage('Build') {
