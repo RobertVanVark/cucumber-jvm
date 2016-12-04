@@ -3,8 +3,11 @@ node {
    stage('Preparation') { // for display purposes
       mvnHome = tool 'mvn3'
    }
-   stage('Build') {
+   stage('Pre-Build') {
       checkout scm
+      echo "$PATH"
+   }
+   stage('Build') {
       sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
    }
    stage('Results') {
