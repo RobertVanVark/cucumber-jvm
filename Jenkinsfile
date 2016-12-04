@@ -6,10 +6,10 @@ node {
    stage('Pre-Build') {
       node {
          checkout scm
-         echo "Pre-Build stage - $PATH"
+         echo "Pre-Build stage - $env.PATH"
       }
       node {
-         echo "Pre-Build stage - $OSTYPE"
+         echo "Pre-Build stage - $env.OSTYPE"
       }
    }
    stage('Build') {
