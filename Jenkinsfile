@@ -13,12 +13,12 @@ node {
       }
    }
    stage('Build') {
-#      sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+//      sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       echo 'Build stage' 
    }
    stage('Results') {
-#      junit '**/target/surefire-reports/TEST-*.xml'
-#      archive 'target/*.jar'
+//      junit '**/target/surefire-reports/TEST-*.xml'
+//      archive 'target/*.jar'
       echo 'Results stage'
    }
 }
